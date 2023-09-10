@@ -1,0 +1,6 @@
+export { default as StudentRecord } from "./StudentRecord"
+export { default as StudentList } from "./StudentList"
+export { default as Course } from "./Course"
+export { default as CourseList } from "./CourseList"
+export { default as DashBoardv1 } from "./DashBoardv1"
+export { default as EditForm } from "./EditForm"
