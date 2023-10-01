@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import { Course, DashBoardv1, EditForm, StudentList, StudentRecord } from '../page'
+import { Bill, Course, DashBoardv1, EditForm, Payment, StudentList, StudentRecord } from '../page'
 
 const AllRoutes = () => {
   return (
@@ -11,6 +11,8 @@ const AllRoutes = () => {
     <Route path='/course' element={<Course/>}/>
     <Route path='/index.html' element={<DashBoardv1/>}/>
     <Route path='/editForm/:id' element={<EditForm/>}/>
+    <Route path='/payment' element={<Payment/>}/>
+    <Route path='/bill/:id' element={<Bill/>}/>
    </Routes>
    </>
   )

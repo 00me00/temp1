@@ -46,7 +46,7 @@ const SideBarComponent = () => {
                                 <NavLink className="nav-link " aria-current="page" to="/course">Course</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link " aria-current="page" to="/course">Course</NavLink>
+                                <NavLink className="nav-link " aria-current="page" to="/payment">Payment</NavLink>
                             </li>
 
                             <li className="nav-item menu-open">

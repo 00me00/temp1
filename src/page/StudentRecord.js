@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 const StudentRecord = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate()
-    const Course = useSelector((state) => state.form.course)
+    const courses = useSelector((state) => state.form.courses)
     const [studentForm, setStudentForm] = useState({
         id: '',
         fullname: '',
@@ -25,7 +25,7 @@ const StudentRecord = () => {
         studentForm.id = Date.now();
 
 
-        console.log(studentForm.id);
+      //  console.log(studentForm.id);
         console.log(studentForm)
 
 
@@ -44,7 +44,7 @@ const StudentRecord = () => {
         })
 
         navigate('/studentList')
-    }
+     }
 
     // useEffect(() => {
     //     console.log('Form values:', studentForm);
@@ -108,10 +108,10 @@ const StudentRecord = () => {
                                             <div className="form-group">
                                                 <label htmlFor="course">Course:</label>
                                                 <select onChange={(e) => setStudentForm({ ...studentForm, course: e.target.value })}>
-                                                    <option>Choose Any Course</option>
+                                                    <option value="">Choose Any Course</option>
                                                     {
-                                                        Course.map((data) => (
-                                                            <option key={data.id}>{data.course}</option>
+                                                       courses && courses.map((data) => (
+                                                            <option key={data.id} value={data.id}>{data.course}</option>
                                                         ))
                                                     }
                                                 </select>
