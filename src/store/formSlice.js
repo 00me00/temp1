@@ -77,8 +77,17 @@ const formSlice = createSlice({
             // } : current
             // ))
             // return { ...state, courses: updatedList, task: {} }
-        }
+        },
+        updateStudentFee(state, action) {
+            const { studentId, newFee } = action.payload;
+            const student = state.students.find((item) => item.id === studentId);
+      
+            if (student) {
+              student.fee = newFee;
+            }
+            // return { ...state, students:student}
+          }
     },
 })
-export const { add, addCourse, remove, edit, update, removeCourse, editCourse, updateCourse } = formSlice.actions;
+export const { add, addCourse, remove, edit, update, removeCourse, editCourse, updateCourse, updateStudentFee } = formSlice.actions;
 export default formSlice.reducer
