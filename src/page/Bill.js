@@ -43,22 +43,22 @@ const Bill = () => {
 
   const handlePayment = () => {
     const payment = parseFloat(paymentAmount);
-     if (!isNaN(payment) && payment > 0) {
+    if (!isNaN(payment) && payment > 0) {
       const newFee = Number(student.fee) + Number(payment);
       console.log('Payment Amount:', payment);
       console.log('New Fee:', newFee);
-  
+
       dispatch(updateStudentFee({ studentId: student.id, newFee }));
-  
+
       const updatedDueBalance = calculateDue({ ...student, fee: newFee });
       console.log('Updated Due Balance:', updatedDueBalance);
-  
+
       setNewDueBalance(updatedDueBalance);
       setPaymentAmount('');
-     }
-     navigate("/studentList");
-  }; 
-  
+    }
+    navigate("/studentList");
+  };
+
 
   const handlePaymentAmountChange = (e) => {
     setPaymentAmount(e.target.value);

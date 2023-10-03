@@ -25,7 +25,7 @@ const StudentRecord = () => {
         studentForm.id = Date.now();
 
 
-      //  console.log(studentForm.id);
+        //  console.log(studentForm.id);
         console.log(studentForm)
 
 
@@ -44,7 +44,7 @@ const StudentRecord = () => {
         })
 
         navigate('/studentList')
-     }
+    }
 
     // useEffect(() => {
     //     console.log('Form values:', studentForm);
@@ -110,7 +110,7 @@ const StudentRecord = () => {
                                                 <select onChange={(e) => setStudentForm({ ...studentForm, course: e.target.value })}>
                                                     <option value="">Choose Any Course</option>
                                                     {
-                                                       courses && courses.map((data) => (
+                                                        courses && courses.map((data) => (
                                                             <option key={data.id} value={data.id}>{data.course}</option>
                                                         ))
                                                     }
