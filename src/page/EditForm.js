@@ -2,6 +2,7 @@ import React, {useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { update } from '../store/formSlice';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const EditForm = () => {
     const task = useSelector((state) => state.form.student)
@@ -46,6 +47,7 @@ const EditForm = () => {
                 
 
     dispatch(update(studentForm))
+    toast.success(`Updated ${studentForm.fullname}`);
 
     setStudentForm({
         fullname: '',

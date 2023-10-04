@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { add } from '../store/formSlice';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 
 const StudentRecord = () => {
@@ -30,6 +31,14 @@ const StudentRecord = () => {
 
 
         dispatch(add(studentForm))
+        if(studentForm){
+            
+        toast.success("Student added successfully")
+        }else{
+            console.error("Something went wrong"); 
+        toast.error("Something went wrong")
+
+        }
 
         setStudentForm({
 

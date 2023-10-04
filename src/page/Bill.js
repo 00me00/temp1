@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { updateStudentFee } from '../store/formSlice';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const Bill = () => {
   const student = useSelector((state) => state.form.student);
@@ -49,6 +50,7 @@ const Bill = () => {
       console.log('New Fee:', newFee);
 
       dispatch(updateStudentFee({ studentId: student.id, newFee }));
+      toast.success("Payment Successful");
 
       const updatedDueBalance = calculateDue({ ...student, fee: newFee });
       console.log('Updated Due Balance:', updatedDueBalance);

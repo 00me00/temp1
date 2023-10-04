@@ -6,6 +6,7 @@ import { editCourse, removeCourse } from '../store/formSlice';
 const CourseList = ({ data, idx }) => {
   const dispatch = useDispatch();
   //const courses = useSelector ((state) => state.form.courses)
+ 
   return (
     <>
       {/* <li>

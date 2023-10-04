@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addCourse, updateCourse, removeCourse } from '../store/formSlice';
+import { toast } from 'react-toastify';
 
 const Course = () => {
   const [newCourse, setNewCourse] = useState('');
@@ -20,6 +21,7 @@ const Course = () => {
         price: newPrice,
       };
       dispatch(updateCourse(updatedCourse));
+      toast.success("Updated successfully");
     } else {
       const newCourseData = {
         id: Date.now().toString(),
@@ -27,6 +29,7 @@ const Course = () => {
         price: newPrice,
       };
       dispatch(addCourse(newCourseData));
+      toast.success("Added new course and price successfully");
     }
 
     setNewCourse('');
@@ -38,10 +41,12 @@ const Course = () => {
     setNewCourse(course.course);
     setNewPrice(course.price);
     setSelectedCourseId(course.id);
+    toast.success("Editing");
   };
 
   const handleDelete = (course) => {
     dispatch(removeCourse(course));
+    toast.error( "Deleted Lists" );
   };
 
   return (

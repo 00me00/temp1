@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { edit, remove } from '../store/formSlice';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const StudentList = () => {
   const dispatch = useDispatch();
@@ -38,6 +39,16 @@ const StudentList = () => {
 
   const handleSearchInputChange = (event) => {
     setSearch(event.target.value);
+  };
+
+  const handleEditClick = (student) => {
+    dispatch(edit(student));
+    toast.success(`Editing ${student.fullname}`);
+  };
+
+  const handleDeleteClick = (student) => {
+    dispatch(remove(student));
+    toast.error(`Deleted ${student.fullname}`);
   };
 
   return (
@@ -86,16 +97,24 @@ const StudentList = () => {
                           <td>{calculateDue(student)}</td>
                           <td>{courseName(student.course)}</td>
                           <td>
-                            <Link to={`/editForm/${student.id}`} className="btn btn-warning btn-sm">
+                            <Link to={`/editForm/${student.id}`} className="btn btn-warning btn-sm" onClick={() => handleEditClick(student)}>
+                              <i className="fa-regular fa-pen-to-square">Edit</i>
+                            </Link>
+                            <button className="btn btn-danger btn-sm" onClick={() => handleDeleteClick(student)}>
+                              <i className="fa-solid fa-trash">Delete</i>
+                            </button>
+
+                            {/* <Link to={`/editForm/${student.id}`} className="btn btn-warning btn-sm">
                               <i className="fa-regular fa-pen-to-square" onClick={() => dispatch(edit(student))}>
                                 Edit
                               </i>
                             </Link>
                             <button className="btn btn-danger btn-sm">
-                              <i className="fa-solid fa-trash" onClick={() => dispatch(remove(student))}>
+                              <i className="fa-solid fa-trash" onClick={() => dispatch(remove(student))} >
                                 Delete
                               </i>
-                            </button>
+                            </button> */}
+
                           </td>
                         </tr>
                       ))}
